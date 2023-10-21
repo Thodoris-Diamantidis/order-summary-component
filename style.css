@@ -3,9 +3,12 @@
   --clr-primary-paleblue-200: hsl(225, 100%, 94%);
   --clr-primary-brightblue-600: hsl(245, 75%, 52%);
 
+  --clr-primary-brightblue-200: hsla(245, 68%, 52%, 0.7);
+
   --clr-neutral-paleblue-100: hsl(225, 100%, 98%);
   --clr-neutral-desaturatedblue-300: hsl(224, 23%, 55%);
   --clr-neutral-darkblue-700: hsl(223, 47%, 23%);
+  --clr-neutral-white-100: hsl(0, 0%, 100%);
 
   /* Font Family */
   --ff-base: "Red Hat Display", sans-serif;
@@ -79,4 +82,130 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+/* Attribution */
+.attribution {
+  margin-top: 2rem;
+}
+
+/* General Styling */
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  font-size: 0.9rem;
+  color: var(--clr-neutral-desaturatedblue-300);
+
+  background-image: url("./images/pattern-background-mobile.svg");
+  background-size: contain;
+  object-fit: fill;
+  background-repeat: no-repeat;
+
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  margin: 1rem;
+}
+
+/* When screensize is bigger than 600 change bg-image */
+@media (min-width: 600px) {
+  body {
+    background-image: url("./images/pattern-background-desktop.svg");
+    font-size: 0.8rem;
+  }
+}
+
+/* Button */
+.btn__proceed {
+  cursor: pointer;
+  background-color: var(--clr-primary-brightblue-600);
+  border: none;
+  padding: 0.7rem;
+  color: var(--clr-neutral-white-100);
+  border-radius: 0.5rem;
+  box-shadow: 0px 12px 15px 0 rgba(0 0 0/20%);
+  font-weight: var(--fw-bold);
+  margin-bottom: 1rem;
+}
+
+/* On hover/focus effect */
+.btn__proceed:is(:hover, :focus) {
+  background-color: var(--clr-primary-brightblue-200);
+}
+
+.btn__cancel {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-weight: var(--fw-extrabold);
+  color: var(--clr-neutral-desaturatedblue-300);
+}
+
+/* On hover/focus effect */
+.btn__cancel:is(:hover, :focus) {
+  color: black;
+}
+
+/* Order styling */
+.order {
+  --content-padding: 2rem;
+  --content-spacing: 1rem;
+
+  display: grid;
+  background-color: var(--clr-neutral-white-100);
+  border-radius: 1rem;
+  max-width: 350px;
+
+  box-shadow: 1px 12px 15px 0px rgba(0 0 0/ 16%);
+}
+
+.order__img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.order__content {
+  padding: var(--content-padding);
+  display: grid;
+  gap: var(--content-spacing);
+  overflow: hidden;
+}
+
+.order__title {
+  color: var(--clr-neutral-darkblue-700);
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: var(--fw-extrabold);
+}
+
+.order__descr {
+  text-align: center;
+}
+
+.order__plan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem;
+  gap: var(--content-spacing);
+  background-color: var(--clr-neutral-paleblue-100);
+  border-radius: 0.5rem;
+}
+
+.order__icon {
+  margin-left: 5px;
+}
+
+.order__plandetails > span {
+  color: var(--clr-neutral-darkblue-700);
+  font-weight: var(--fw-extrabold);
+}
+
+.order__plan > a {
+  font-weight: var(--fw-bold);
+  margin-left: 2px;
+}
+
+.order__plan > a:hover {
+  text-decoration: none;
 }
